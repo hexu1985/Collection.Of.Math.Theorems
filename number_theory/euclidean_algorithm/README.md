@@ -94,9 +94,9 @@ $$
 
 - - -
 
-### 欧几里得算法（Euclidean algorithm）的实现
+最后，我们给出欧几里得算法的python语言实现：
 
-接下来，我们给出欧几里得算法的python语言实现：
+### 欧几里得算法（Euclidean algorithm）的实现
 
 - 递归版本
 
