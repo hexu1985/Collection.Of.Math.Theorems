@@ -2,6 +2,8 @@
 
 欧几里得算法也称为辗转相除法, 用于计算两个正整数的最大公因数, 一般用(a,b)来表示a和b的最大公因数, 计算机领域一般表示成gcd(a,b).
 
+### 欧几里得算法（Euclidean algorithm）的证明
+
 欧几里得算法的定理描述如下:
 
 **定理（欧几里得算法）** 令整数$r_0 = a$，$r_1 = b$满足$a \ge b > 0$，如果连续做带余除法得到$r_j = r_{j+1} q_{j+1} + r_{j+2}$，
@@ -68,4 +70,70 @@ $$
 
 最后一个非零除数（在最后一列倒数第二行的那个数）就是252和198的最大公因子。因此$(252, 198) = 18$
 
+- - -
 
+### 欧几里得算法（Euclidean algorithm）的实现
+
+接下来，我们给出欧几里得算法的python语言实现：
+
+- 递归版本
+
+```python
+def Euclid(a:int, b:int):
+    assert a >= b >= 0
+    if b == 0:
+        return a
+    return Euclid(b, a%b)
+
+def gcd(a:int, b:int):
+    assert a >= 0 and b >= 0
+    if a < b:
+        a, b = b, a # swap(a,b)
+    return Euclid(a, b)
+
+def print_gcd(a, b):
+    print("gcd({}, {}) = {}".format(a, b, gcd(a, b)))
+
+if __name__ == "__main__":
+    print_gcd(252, 198)
+    print_gcd(414, 662)
+```
+
+- 迭代版本
+
+```python
+def Euclid(a:int, b:int):
+    assert a >= b >= 0
+    r = a % b
+    while r != 0:
+        a = b
+        b = r
+        r = a % b
+    return b
+
+def gcd(a:int, b:int):
+    assert a >= 0 and b >= 0
+    if a < b:
+        a, b = b, a # swap(a,b)
+    return Euclid(a, b)
+
+def print_gcd(a, b):
+    print("gcd({}, {}) = {}".format(a, b, gcd(a, b)))
+
+if __name__ == "__main__":
+    print_gcd(252, 198)
+    print_gcd(414, 662)
+```
+
+另外，python标准库的math模块内置了gcd的实现，可以作为基准版本：
+
+```python
+import math
+
+def print_gcd(a, b):
+    print("gcd({}, {}) = {}".format(a, b, math.gcd(a, b)))
+
+if __name__ == "__main__":
+    print_gcd(252, 198)
+    print_gcd(414, 662)
+```
