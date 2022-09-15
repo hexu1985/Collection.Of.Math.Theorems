@@ -7,7 +7,7 @@ def Euclid(a:int, b:int, j:int):
     assert a >= b >= 0
     if b == 0:
         # (s * a + t * b) 
-        print("({s}) * {a} + ({t}) * {b} = {d}".format(s=1, a=a, t=0, b=b, d=a))
+        print("j={j}: ({s}) * {a} + ({t}) * {b} = {d}".format(j=j, s=1, a=a, t=0, b=b, d=a))
         return (1, 0, a)
     print("j={j}: {r_j} = {r_j_1} * {q_j_1} + {r_j_2}".format(j=j, r_j=a, r_j_1=b, q_j_1=a//b, r_j_2=a%b))
     x, y, d = Euclid(b, a%b, j+1)
@@ -25,7 +25,9 @@ def gcd(a:int, b:int):
     return Euclid(a, b, 0)
 
 def print_gcd(a, b):
-    print("gcd({}, {}) = {}".format(a, b, gcd(a, b)))
+    s, t, d = gcd(a, b)
+    print("gcd({}, {}) = {}".format(a, b, d))
+    print(f"({s}) * {a} + ({t}) * {b} = {d}")
 
 if __name__ == "__main__":
     print_gcd(252, 198)
