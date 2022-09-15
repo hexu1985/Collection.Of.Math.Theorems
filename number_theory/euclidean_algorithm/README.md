@@ -1,6 +1,6 @@
 ## 欧几里得算法（Euclidean algorithm）的证明与实现
 
-欧几里得算法也称为辗转相除法, 用于计算两个正整数的最大公因数, 一般用(a,b)来表示a和b的最大公因数, 计算机领域一般表示成gcd(a,b).
+欧几里得算法也称为辗转相除法, 用于计算两个正整数的最大公因数, 一般用$(a, b)$来表示a和b的最大公因数, 计算机领域一般表示成$gcd(a, b)$.
 
 首先，我们给出欧几里得算法依赖的一些基本概念的定义：
 
@@ -14,7 +14,7 @@
 
 **定义** 不全为零的整数$a$和$b$的最大公因子是指能够同时整除$a$和$b$的最大整数。
 
-$a$和$b$的最大公因子记作$(a, b)$。有时也记作$gcd(a,b)$。
+$a$和$b$的最大公因子记作$(a, b)$。有时也记作$gcd(a, b)$。
 
 注意当$n$为正整数时，$(0, n) = (n, 0) = n$。
 
@@ -112,7 +112,7 @@ def Euclid(a:int, b:int):
 def gcd(a:int, b:int):
     assert a >= 0 and b >= 0
     if a < b:
-        a, b = b, a # swap(a,b)
+        a, b = b, a # swap(a, b)
     return Euclid(a, b)
 
 def print_gcd(a, b):
@@ -138,7 +138,7 @@ def Euclid(a:int, b:int):
 def gcd(a:int, b:int):
     assert a >= 0 and b >= 0
     if a < b:
-        a, b = b, a # swap(a,b)
+        a, b = b, a # swap(a, b)
     return Euclid(a, b)
 
 def print_gcd(a, b):
