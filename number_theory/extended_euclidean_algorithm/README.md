@@ -129,8 +129,10 @@ $$
 $$
 我们有
 $$
+\begin{aligned}
 (a, b) & = s \cdot r_{j+1} + t \cdot (r_{j} - r_{j+1} \cdot q_{j+1}) \\
        & = t \cdot r_{j} + (s - t \cdot q_{j+1}) \cdot r_{j+1}
+\end{aligned}
 $$
 这显示了如何沿着欧几里得算法产生的等式递进，最终使得$a$和$b$的最大公因数$(a, b)$可以表示成它们的线性组合，即
 如果已经求得
@@ -143,8 +145,10 @@ $$
 $$
 我们有
 $$
+\begin{aligned}
 (a, b) & = s' \cdot r_{1} + t' \cdot (r_{0} - r_{1} \cdot q_{1}) \\
        & = t' \cdot r_{0} + (s' - t' \cdot q_{1}) \cdot r_{1}
+\end{aligned}
 $$
 其中$a = r_{0}$, $b = r_{1}$, $q_{1} = \lfloor a / b \rfloor $ 算法就此结束。
 
@@ -193,8 +197,10 @@ if __name__ == "__main__":
     假设当前帧`a` = $r_{j}$, `b` = $r_{j+1}$，那么由`s, t, d = extended_Euclid(b, a%b)`这条语句可知，
     `a%b` = $r_{j+2}$, `a//b` = $q_{j+1}$，套用之前的公式
     $$
+    \begin{aligned}
     d = (a, b) & = s \cdot r_{j+1} + t \cdot (r_{j} - r_{j+1} \cdot q_{j+1}) \\
                & = t \cdot r_{j} + (s - t \cdot q_{j+1}) \cdot r_{j+1}
+    \end{aligned}
     $$
     并且把`a` = $r_{j}$, `b` = $r_{j+1}$, `a%b` = $r_{j+2}$, `a//b` = $q_{j+1}$代回上式，就得到return语句中的三元组了。
 
