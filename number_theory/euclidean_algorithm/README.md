@@ -22,8 +22,6 @@ $a$和$b$的最大公因子记作$(a, b)$。有时也记作$gcd(a, b)$。
 
 然后我们给出欧几里得算法的定理描述和证明过程
 
-### 欧几里得算法（Euclidean algorithm）的证明
-
 欧几里得算法的定理描述如下:
 
 **定理（欧几里得算法）** 令整数$r_{0} = a$，$r_{1} = b$满足$a \ge b > 0$，
@@ -97,8 +95,6 @@ $$
 
 最后，我们给出欧几里得算法的python语言实现：
 
-### 欧几里得算法（Euclidean algorithm）的实现
-
 - 递归版本
 
 ```python
@@ -119,7 +115,6 @@ def print_gcd(a, b):
 
 if __name__ == "__main__":
     print_gcd(252, 198)
-    print_gcd(414, 662)
 ```
 
 - 迭代版本
@@ -145,7 +140,6 @@ def print_gcd(a, b):
 
 if __name__ == "__main__":
     print_gcd(252, 198)
-    print_gcd(414, 662)
 ```
 
 另外，python标准库的math模块内置了gcd的实现，可以作为基准版本：
@@ -158,7 +152,6 @@ def print_gcd(a, b):
 
 if __name__ == "__main__":
     print_gcd(252, 198)
-    print_gcd(414, 662)
 ```
 
 - - -
