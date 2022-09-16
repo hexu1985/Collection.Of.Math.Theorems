@@ -150,7 +150,7 @@ $$
        & = t' \cdot r_{0} + (s' - t' \cdot q_{1}) \cdot r_{1}
 \end{aligned}
 $$
-其中$a = r_{0}$, $b = r_{1}$, $q_{1} = \lfloor a / b \rfloor $ 算法就此结束。
+其中$a = r_{0}$，$b = r_{1}$，$q_{1} = \lfloor a / b \rfloor $ 算法就此结束。
 
 下面给出该算法的python语言实现：
 
@@ -190,19 +190,19 @@ if __name__ == "__main__":
 
 - 结束条件，`b为0`时，`return (1, 0, a)`，
 
-    因为这时$b$为$0$, $d = (a, b) = a$，于是乎$d = 1 \cdot a + 0 \cdot b$
+    因为这时$b$为$0$，$d = (a, b) = a$，于是乎$d = 1 \cdot a + 0 \cdot b$
 
 - 递归调用， `b不为0`时，`return (t, (s-t*(a//b)), d)`
 
-    假设当前帧`a` = $r_{j}$, `b` = $r_{j+1}$，那么由`s, t, d = extended_Euclid(b, a%b)`这条语句可知，
-    `a%b` = $r_{j+2}$, `a//b` = $q_{j+1}$，套用之前的公式
+    假设当前帧`a` = $r_{j}$，`b` = $r_{j+1}$，那么由`s, t, d = extended_Euclid(b, a%b)`这条语句可知，
+    `a%b` = $r_{j+2}$，`a//b` = $q_{j+1}$，套用之前的公式
     $$
     \begin{aligned}
     d = (a, b) & = s \cdot r_{j+1} + t \cdot (r_{j} - r_{j+1} \cdot q_{j+1}) \\
                & = t \cdot r_{j} + (s - t \cdot q_{j+1}) \cdot r_{j+1}
     \end{aligned}
     $$
-    并且把`a` = $r_{j}$, `b` = $r_{j+1}$, `a%b` = $r_{j+2}$, `a//b` = $q_{j+1}$代回上式，就得到return语句中的三元组了。
+    并且把`a` = $r_{j}$，`b` = $r_{j+1}$，`a%b` = $r_{j+2}$，`a//b` = $q_{j+1}$代回上式，就得到return语句中的三元组了。
 
 这种将$(a, b)$表示成$a$, $b$
 - - -
