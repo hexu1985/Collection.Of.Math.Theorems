@@ -145,3 +145,56 @@ $$
        & = t' \cdot r_{0} + (s' - t' \cdot q_{1}) \cdot r_{1}
 $$
 其中$a = r_{0}$, $b = r_{1}$, $q_{1} = \lfloor a / b \rfloor $ 算法就此结束。
+
+下面给出该算法的python语言实现：
+
+```python
+def extended_Euclid(a:int, b:int):
+    ''' 
+    return s, t, d
+    s * a + t * b = d
+    '''
+    assert a >= b >= 0
+    if b == 0:
+        # s * a + t * b = d
+        # d = a and s = 1 and t = 0
+        return (1, 0, a)
+    s, t, d = extended_Euclid(b, a%b)
+    # a = r_{j}, b = r_{j+1}, a%b = r_{j+2}, a//b = q_{j+1}
+    # d = t * r_{j} + (s - t * q_{j+1}) * r_{j+1}
+    # return t, (s - t * (a//b)), d
+    return (t, (s-t*(a//b)), d)
+
+def extended_gcd(a:int, b:int):
+    assert a >= 0 and b >= 0
+    if a < b:
+        a, b = b, a # swap(a,b)
+    return extended_Euclid(a, b)
+
+def print_extended_gcd(a, b):
+    s, t, d = extended_gcd(a, b)
+    print("gcd({}, {}) = {}".format(a, b, d))
+    print(f"({s}) * {a} + ({t}) * {b} = {d}")
+
+if __name__ == "__main__":
+    print_extended_gcd(252, 198)
+```
+
+这里简单注解一下extended_Euclid的实现：
+
+- 结束条件，`b为0`时，`return (1, 0, a)`，
+
+    因为这时$b$为$0$, $d = (a, b) = a$，于是乎$d = 1 \cdot a + 0 \cdot b$
+
+- 递归调用， `b不为0`时，`return (t, (s-t*(a//b)), d)`
+
+    假设当前帧`a` = $r_{j}$, `b` = $r_{j+1}$，那么由`s, t, d = extended_Euclid(b, a%b)`这条语句可知，
+    `a%b` = $r_{j+2}$, `a//b` = $q_{j+1}$，套用之前的公式
+    $$
+    d = (a, b) & = s \cdot r_{j+1} + t \cdot (r_{j} - r_{j+1} \cdot q_{j+1}) \\
+               & = t \cdot r_{j} + (s - t \cdot q_{j+1}) \cdot r_{j+1}
+    $$
+    并且把`a` = $r_{j}$, `b` = $r_{j+1}$, `a%b` = $r_{j+2}$, `a//b` = $q_{j+1}$代回上式，就得到return语句中的三元组了。
+
+这种将$(a, b)$表示成$a$, $b$
+- - -
