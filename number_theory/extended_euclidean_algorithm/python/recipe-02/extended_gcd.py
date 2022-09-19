@@ -7,9 +7,9 @@ class Memo:
         self.s[0] = 1; self.t[0] = 0
         self.s[1] = 0; self.t[1] = 1
 
-    def update_q(self, j:int, q:int): 
+    def update_q(self, j:int, q_j:int): 
         assert j >= 1
-        self.q[j] = q
+        self.q[j] = q_j
         self.calculate_s_t(j)
 
     def calculate_s_t(self, j:int):
