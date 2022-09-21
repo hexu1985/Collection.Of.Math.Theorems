@@ -205,6 +205,7 @@ if __name__ == "__main__":
     $$
     并且把`a` = $r_{j}$，`b` = $r_{j+1}$，`a//b` = $q_{j+1}$代回上式，就得到return语句中的三元组了。
 
+
 - - -
 
 另外一种计算方法，叫做扩展的欧几里得算法，和第一种的区别主要在于不需要反向计算步骤，在计算最大公因数的同时，
@@ -217,8 +218,8 @@ $$
 其中$s_{n}$, $t_{n}$是下面定义的递归序列的第$n$项：
 $$
 \begin{aligned}
-s_{0} = 1, & t_{0} = 0, \\
-s_{1} = 0, & t_{1} = 1,
+s_{0} = 1, & & t_{0} = 0, \\
+s_{1} = 0, & & t_{1} = 1,
 \end{aligned}
 $$
 且
@@ -226,7 +227,6 @@ $$
 s_{j} = s_{j-2} - q_{j-1} \cdot s_{j-1}, \quad t_{j} = t_{j-2} - q_{j-1} \cdot t_{j-1}
 $$
 其中$j = 2, 3, \cdots, n$，而$q_{j}$是欧几里得算法求$(a, b)$时每一步的商。
-$$
 
 **证明** 我们将证明
 $$
@@ -250,10 +250,11 @@ $$
 由归纳假设，得到
 $$
 \begin{aligned}
-r_{k} & = (s_{k-2} \cdot a + t_{k-2} \cdot b) - (s_{k-1} \cdot a + t_{k-1} \cdot b) \cdot q_{k-1}
-      & = (s_{k-2} - s_{k-1} \cdot q_{k-1}) \cdot a + (t_{k-2} - t_{k-1} \cdot q_{k-1}) \cdot b
+r_{k} & = (s_{k-2} \cdot a + t_{k-2} \cdot b) - (s_{k-1} \cdot a + t_{k-1} \cdot b) \cdot q_{k-1} \\
+      & = (s_{k-2} - s_{k-1} \cdot q_{k-1}) \cdot a + (t_{k-2} - t_{k-1} \cdot q_{k-1}) \cdot b   \\
       & = s_{k} \cdot a + t_{k} \cdot b
 \end{aligned}
+$$
 这就完成了证明。$\blacksquare$
 
 下面我们还是用一个例子说明扩展的欧几里得算法如何将$(a, b)$表示成$a$, $b$的线性组合。
@@ -270,11 +271,11 @@ r_{k} & = (s_{k-2} \cdot a + t_{k-2} \cdot b) - (s_{k-1} \cdot a + t_{k-1} \cdot
 $s_{j}$和$t_{j}$$(j = 0, 1, 2, 3, 4)$的值计算如下：
 $$
 \begin{aligned}
-s_{0} = 1, & t_{0} = 0, \\
-s_{1} = 0, & t_{1} = 1, \\
-s_{2} = s_{0} - q_{1} \cdot s_{1} = 1 - 1 \times 0 = 1, & t_{2} = t_{0} - q_{1} \cdot t_{1} = 0 - 1 \times 1 = -1, \\
-s_{3} = s_{1} - q_{2} \cdot s_{2} = 0 - 3 \times 1 = -3, & t_{3} = t_{1} - q_{2} \cdot t_{2} = 1 - 3 \times (-1) = 4, \\
-s_{4} = s_{2} - q_{3} \cdot s_{3} = 1 - 1 \times (-3) = 4, & t_{4} = t_{2} - q_{3} \cdot t_{3} = -1 - 1 \times (4) = -5, \\
+s_{0} & = 1, & t_{0} & = 0, \\
+s_{1} & = 0, & t_{1} & = 1, \\
+s_{2} & = s_{0} - q_{1} \cdot s_{1} = 1 - 1 \times 0 = 1,    & t_{2} & = t_{0} - q_{1} \cdot t_{1} = 0 - 1 \times 1 = -1, \\
+s_{3} & = s_{1} - q_{2} \cdot s_{2} = 0 - 3 \times 1 = -3,   & t_{3} & = t_{1} - q_{2} \cdot t_{2} = 1 - 3 \times (-1) = 4, \\
+s_{4} & = s_{2} - q_{3} \cdot s_{3} = 1 - 1 \times (-3) = 4, & t_{4} & = t_{2} - q_{3} \cdot t_{3} = -1 - 1 \times (4) = -5, \\
 \end{aligned}
 $$
 因为$r_{4} = 18 = (252, 198)$且$r_{4} = s_{4} \cdot a + t_{4} \cdot b$，故
@@ -282,3 +283,70 @@ $$
 18 = (252, 198) = 4 \times 252 - 5 \times 198
 $$
 最后一个等式将$18 = (252, 198)$写成了$252$, $198$的线性组合的形式。$\blacktriangleleft$
+
+最后我们给出扩展欧几里得算法的python语言实现：
+
+```python
+class Memo:
+    def __init__(self):
+        self.q = dict()
+        self.s = dict()
+        self.t = dict()
+        self.s[0] = 1; self.t[0] = 0
+        self.s[1] = 0; self.t[1] = 1
+
+    def update_q(self, j:int, q_j:int): 
+        assert j >= 1
+        self.q[j] = q_j
+        self.calculate_s_t(j)
+
+    def calculate_s_t(self, j:int):
+        if j < 2:
+            return
+        self.s[j] = self.s[j-2] - self.q[j-1]*self.s[j-1]
+        self.t[j] = self.t[j-2] - self.q[j-1]*self.t[j-1]
+
+    def get_s_t(self, j:int):
+        assert j >= 0
+        return (self.s[j], self.t[j])
+
+
+def extended_Euclid(a:int, b:int):
+    assert a >= b >= 0
+    memo = Memo()
+    r = a % b 
+    q = a // b
+    j = 1   # a = r_{0}, b = r_{1}, q = q_{1}, r = r_{2}
+    memo.update_q(j, q)
+    while r != 0:
+        a = b
+        b = r
+        r = a % b
+        q = a // b
+        j += 1  # a = r_{j-1}, b = r_{j}, q = q_{j}, r = r_{j+1}
+        memo.update_q(j, q)
+
+    s, t = memo.get_s_t(j)
+    return s, t, b
+
+def extended_gcd(a:int, b:int):
+    assert a >= 0 and b >= 0
+    if a < b:
+        a, b = b, a # swap(a,b)
+    return extended_Euclid(a, b)
+
+def print_extended_gcd(a, b):
+    s, t, d = extended_gcd(a, b)
+    print("gcd({}, {}) = {}".format(a, b, d))
+    print(f"({s}) * {a} + ({t}) * {b} = {d}")
+
+if __name__ == "__main__":
+    print_extended_gcd(252, 198)
+```
+
+- - -
+
+参考文献：
+- 初等数论及其应用（原书第6版）: ISBN 978-7-111-48697-8
+- 离散数学及其应用（原书第8版）: ISBN 978-7-111-63687-8
+- 算法概论: ISBN 978-7-302-17939-9
