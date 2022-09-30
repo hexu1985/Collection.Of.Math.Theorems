@@ -42,7 +42,7 @@ $$
 
 我们再根据三角恒等式$\sin ^{2} \theta + \cos ^{2} \theta = 1$，将上式合并整理：
 $$
-c^{2} = a^{2} + b^{b} - 2ab \cdot \cos \theta
+c^{2} = a^{2} + b^{2} - 2ab \cdot \cos \theta
 $$
 
 于是余弦定理得证，同样方法可以证明另外两个公式。$\blacksquare$
