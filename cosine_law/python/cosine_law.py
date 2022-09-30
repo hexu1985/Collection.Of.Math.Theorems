@@ -43,13 +43,13 @@ plt.scatter([xa, xb, xc], [ya, yb, yc])
 plt.scatter([xa, 0], [0, ya])
 
 # 绘制点的名称
-plt.text(xa-0.3, ya+0.3, r"$A (b \cdot \cos(\pi - \theta), b \cdot \sin(\pi - \theta))$")
+plt.text(xa-0.3, ya+0.3, r"$A (b \cdot \cos \theta, b \cdot \sin \theta)$")
 plt.text(xb, yb-0.8, r"$B (a, 0)$")
 plt.text(xc, yc-0.8, r"$C (0, 0)$")
 
 # 绘制角的名称
 plt.annotate(r"$\theta$", xy=(xc+0.1, yc+0.1), xytext=(xc+0.7, yc+0.7), arrowprops=dict(arrowstyle="-"))
-plt.annotate(r"$\pi - \theta$", xy=(xc-0.2, yc+0.1), xytext=(xc-3, yc+0.5), arrowprops=dict(arrowstyle="-"))
+#plt.annotate(r"$\pi - \theta$", xy=(xc-0.2, yc+0.1), xytext=(xc-3, yc+0.5), arrowprops=dict(arrowstyle="-"))
 
 
 plt.show()
