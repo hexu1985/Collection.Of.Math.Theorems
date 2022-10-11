@@ -47,8 +47,29 @@ plt.text(xa-0.3, ya+0.3, r"$A (b \cdot \cos \theta, b \cdot \sin \theta)$")
 plt.text(xb, yb-0.8, r"$B (a, 0)$")
 plt.text(xc, yc-0.8, r"$C (0, 0)$")
 
+# 计算角的度数
+theta = np.degrees(np.arctan(ya/xa))
+if theta < 0:
+    theta += 180
+print("theta: {}".format(theta))
+
+# 绘制角的弧线
+p1=0
+p2=theta*np.pi/180
+r=(xb-xc)/7
+dp=(p2-p1)/50
+xlast=xc+r*np.cos(p1)
+ylast=yc+r*np.sin(p1)
+for p in np.arange(p1+dp,p2,dp):
+    x=xc+r*np.cos(p)
+    y=yc+r*np.sin(p)
+    plt.plot([xlast,x],[ylast,y],linewidth=0.5,color='k')
+    xlast=x
+    ylast=y
+
 # 绘制角的名称
-plt.annotate(r"$\theta$", xy=(xc+0.1, yc+0.1), xytext=(xc+0.7, yc+0.7), arrowprops=dict(arrowstyle="-"))
+plt.text(xc+0.7, yc+0.7, r"$\theta$")
+
 
 plt.show()
 
