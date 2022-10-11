@@ -48,7 +48,7 @@ plt.text(xb, yb-0.8, r"$B (a, 0)$")
 plt.text(xc, yc-0.8, r"$C (0, 0)$")
 
 # 计算角的度数
-theta = np.degrees(np.arctan(ya/xa))
+theta = np.degrees(np.arctan((ya-yc)/(xa-xc)))
 if theta < 0:
     theta += 180
 print("theta: {}".format(theta))
@@ -69,7 +69,6 @@ for p in np.arange(p1+dp,p2,dp):
 
 # 绘制角的名称
 plt.text(xc+0.7, yc+0.7, r"$\theta$")
-
 
 plt.show()
 
