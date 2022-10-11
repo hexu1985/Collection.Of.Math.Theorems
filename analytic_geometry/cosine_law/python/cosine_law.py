@@ -31,7 +31,7 @@ plt.plot([xb, xc], [yb, yc], linewidth=2, color='k')
 
 # 绘制边的名称
 plt.text((xa+xb)/2+0.3, (ya+yb)/2, "c")
-plt.text((xa+xc)/2-0.5, (ya+yc)/2-0.5, "b")
+plt.text((xa+xc)/2-0.8, (ya+yc)/2, "b")
 plt.text((xb+xc)/2+0.4, (yb+yc)/2-0.6, "a")
 
 # 绘制辅助线
