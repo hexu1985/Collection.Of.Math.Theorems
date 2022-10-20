@@ -53,13 +53,16 @@ alpha = 130*np.pi/180
 xp = xc+r*np.cos(alpha)
 yp = xc+r*np.sin(alpha)
 plt.scatter(xp, yp, color='k')
-plt.text(xp, yp+0.8, r"$P$")
+plt.text(xp-4, yp+0.2, r"$P(\cos \alpha, \sin \alpha)$")
 
 beta = 30*np.pi/180
 xq = xc+r*np.cos(beta)
 yq = xc+r*np.sin(beta)
 plt.scatter(xq, yq, color='k')
-plt.text(xq, yq+0.8, r"$Q$")
+plt.text(xq, yq+0.3, r"$Q(\cos \beta, \sin \beta)$")
+
+plt.scatter(r, 0, color='k')
+plt.text(r+0.2, -0.8, r"$A(1, 0)$")
 
 # 绘制线
 
