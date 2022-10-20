@@ -69,6 +69,43 @@ $$
 \end{aligned}
 $$
 
-同样的方式可以证明公式(1)和公式(2)
+同样的方式可以证明公式(1)
 $$
+\begin{aligned}
+\sin(\alpha + \beta) & = \cos(\frac{\pi}{2} - (\alpha + \beta))      \\
+                     & = \cos((\frac{\pi}{2} - \alpha) - \beta)      \\
+                     & = \cos(\frac{\pi}{2} - \alpha) \cdot \cos \beta + \sin(\frac{\pi}{2} - \alpha) \cdot \sin \beta \\
+                     & = \sin \alpha \cdot \cos \beta + \cos \alpha \cdot \sin \beta
+\end{aligned}
 $$
+
+然后由公式(1)推出公式(2)
+$$
+\begin{aligned}
+\sin(\alpha - \beta) & = \sin (\alpha - (-\beta))      \\
+                     & = \sin \alpha \cdot \cos (-\beta) + \cos \alpha \cdot \sin (-\beta) \\
+                     & = \sin \alpha \cdot \cos \beta - \cos \alpha \cdot \sin \beta
+\end{aligned}
+$$
+
+由公式(1)和公式(3)推出公式(5)
+$$
+\begin{aligned}
+\tan(\alpha + \beta) & = \frac{\sin(\alpha + \beta)}{\cos (\alpha + \beta)}       \\
+                     & = \frac{\sin \alpha \cdot \cos \beta + \cos \alpha \cdot \sin \beta}{\cos \alpha \cdot \cos \beta - \sin \alpha \cdot \sin \beta}    \\
+                     & = \frac{(\sin \alpha \cdot \cos \beta + \cos \alpha \cdot \sin \beta)/(\cos \alpha \cdot \cos \beta)}{(\cos \alpha \cdot \cos \beta - \sin \alpha \cdot \sin \beta)/(\cos \alpha \cdot \cos \beta)}      \\
+                     & = \frac{\tan \alpha + \tan \beta}{1 - \tan \alpha \cdot \tan \beta}
+\end{aligned}
+$$
+
+同样的方式，由公式(2)和公式(4)推出公式(5)
+$$
+\begin{aligned}
+\tan(\alpha - \beta) & = \frac{\sin(\alpha - \beta)}{\cos (\alpha - \beta)}       \\
+                     & = \frac{\sin \alpha \cdot \cos \beta - \cos \alpha \cdot \sin \beta}{\cos \alpha \cdot \cos \beta + \sin \alpha \cdot \sin \beta}    \\
+                     & = \frac{(\sin \alpha \cdot \cos \beta - \cos \alpha \cdot \sin \beta)/(\cos \alpha \cdot \cos \beta)}{(\cos \alpha \cdot \cos \beta + \sin \alpha \cdot \sin \beta)/(\cos \alpha \cdot \cos \beta)}      \\
+                     & = \frac{\tan \alpha - \tan \beta}{1 + \tan \alpha \cdot \tan \beta}
+\end{aligned}
+$$
+
+至此，加法定理的6个公式证明完毕。$\blacksquare$
