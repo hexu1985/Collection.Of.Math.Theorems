@@ -2,7 +2,7 @@
 
 我们可以通过点积计算两个向量的夹角。
 
-![二维向量的夹角](vectorial_angle_cosine.png)
+![二维向量的夹角](draw.io/vectorial_angle_cosine.drawio.png)
 
 上图给出二维的情况，其中向量$\mathbf{b}$和向量$\mathbf{c}$与$x$轴的夹角分别为$\phi_{b}$和$\phi_{c}$，从基本三角函数可得：
 $$
