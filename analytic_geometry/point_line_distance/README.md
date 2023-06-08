@@ -27,9 +27,14 @@ $$
 (A,B) \cdot (x_2-x_1,y_2-y_1) = 0
 $$
 这里的$\cdot$代表向量内积。所以向量$(A,B)$与向量$\overrightarrow{MN}$垂直（即与直线$l$垂直），
-所以法向量为$\mathbf{n}$与$(A,B)$平行，这里我们就假设$\mathbf{n} = (A,B)$，
+所以法向量为$\mathbf{n}$与$(A,B)$平行，$\mathbf{n} \mathop{//} (A,B)$。
 由于PQ垂直于直线$l$，所以向量$\overrightarrow{PQ}$平行于$\mathbf{n}$（同向或反向无所谓），所以$\overrightarrow{PQ} = t(A,B)$，这里$t$为实数，我们设Q的坐标为$(x,y)$，所以$(x-x_0, y-y_0) = t(A,B)$，即
 $$
+\begin{cases}
+x - x_0 = tA \\
+y - y_0 = tB
+\end{cases}
+\Rightarrow
 \begin{cases}
 x = x_0+tA \\
 y = y_0+tB
@@ -51,7 +56,6 @@ $$
 $$
 \begin{align}
 \left| \overrightarrow{PQ} \right| & = \sqrt{(x-x_0)^2+(y-y_0)^2} \\
-                      & = \sqrt{(x_0+At-x_0)^2+(y_0+Bt-y_0)^2} \\
                       & = \sqrt{(At)^2+(Bt)^2} \\
                       & = |t|\sqrt{A^2+B^2} \\
                       & = \cfrac{|Ax_0+By_0+C|}{A^2+B^2} \sqrt{A^2+B^2} \\
