@@ -69,12 +69,15 @@ $$
 h^{2} = |\mathbf{u} - \mathbf{v}|^{2} - (|\mathbf{v}| - |\mathbf{u}| \cos(\theta))^{2}      \tag{2}
 $$
 
-令式$(1)$和式$(2)$相等并简化，得到表达式
+令式(1)和式(2)相等并简化，得到表达式
 
 $$
 |\mathbf{u}|^{2} (1 - \cos^{2}(\theta)) = |\mathbf{u} - \mathbf{v}|^{2} - (|\mathbf{v}| - |\mathbf{u}| \cos(\theta))^{2}    \\
 \Downarrow \\
 |\mathbf{u}|^{2} - |\mathbf{u}|^{2} \cos^{2}(\theta) = |\mathbf{u} - \mathbf{v}|^{2} - |\mathbf{v}|^{2} + 2 |\mathbf{u}| |\mathbf{v}| \cos(\theta) - |\mathbf{u}|^{2} \cos^{2}(\theta)  \\
+$$
+
+$$
 \Downarrow \\
 $$
 
@@ -82,24 +85,29 @@ $$
 |\mathbf{u} - \mathbf{v}|^{2} = |\mathbf{u}|^{2} + |\mathbf{v}|^{2} - 2 |\mathbf{u}| |\mathbf{v}| \cos(\theta)      \tag{3}
 $$
 
-式$(3)$是不是很眼熟，对就是向量形式的余弦定理公式。
+式(3)是不是很眼熟，对！就是向量形式的余弦定理公式。
 
 可以用公式将$|\mathbf{u} - \mathbf{v}|^{2}$明确写成另一种表达式
 
 $$
-\begin{align}
-|\mathbf{u} - \mathbf{v}|^{2} & = (\mathbf{u} - \mathbf{v}) \cdot (\mathbf{u} - \mathbf{v}) \\
-        & = |\mathbf{u}|^{2} - 2 \mathbf{u} \cdot \mathbf{v} + |\mathbf{v}|^{2}     \tag{4}
-\end{align}
+|\mathbf{u} - \mathbf{v}|^{2} = (\mathbf{u} - \mathbf{v}) \cdot (\mathbf{u} - \mathbf{v}) \\
 $$
 
-通过令式$(3)$和式$(4)$相等，得
+$$
+\Downarrow \\
+$$
+
+$$
+|\mathbf{u} - \mathbf{v}|^{2} = |\mathbf{u}|^{2} - 2 \mathbf{u} \cdot \mathbf{v} + |\mathbf{v}|^{2}     \tag{4}
+$$
+
+通过令式(3)和式(4)相等，得
 
 $$
 \mathbf{u} \cdot \mathbf{v} = |\mathbf{u}| |\mathbf{v}| \cos(\theta)        \tag{5}
 $$
 
-式$(5)$就是点积的几何定义。
+式(5)就是点积的几何定义。
 
 
 #### 参考资料:
