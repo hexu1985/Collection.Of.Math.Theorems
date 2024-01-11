@@ -1,6 +1,6 @@
-## 柯西--施瓦茨不等式的一种证明
+## 柯西--施瓦茨不等式
 
-这里给出柯西--施瓦茨不等式的实数域表示和向量表示，并给出基于向量的证明。
+柯西--施瓦茨不等式有很多表示方式，我们只介绍实数域表示和向量表示，并给出基于向量的证明。
 
 **实数域表示**
 
@@ -32,7 +32,7 @@ $$
 (\mathbf{a} \cdot \mathbf{b})^{2} \leq |\mathbf{a}|^{2} |\mathbf{b}|^{2}    \tag{4}
 $$
 
-下面我们就给出向量表示的证明：
+下面我们只给出三维向量空间下的证明：
 
 **证明**
 
@@ -61,20 +61,26 @@ $$
 根据向量内积的代数表示，
 
 $$
-\mathbf{a} \cdot \mathbf{b} = a_1 b_1 + a_2 b_2 + \cdots + a_n b_n = \sum\limits_{i=1}^{n}a_{i}b_{i}    \tag{8}
+\mathbf{a} \cdot \mathbf{b} = a_1 b_1 + a_2 b_2 + a_3 b_3 = \sum\limits_{i=1}^{3}a_{i}b_{i}    \tag{8}
 $$
 
 以及，向量的长度公式：
 
 $$
-|\mathbf{a}|^{2} = \mathbf{a} \cdot \mathbf{a} = a_1 a_1 + a_2 a_2 + \cdots + a_n a_n = \sum\limits_{i=1}^{n}a_{i}^{2}    \tag{9}
+|\mathbf{a}|^{2} = \mathbf{a} \cdot \mathbf{a} = a_1 a_1 + a_2 a_2 + a_3 a_3 = \sum\limits_{i=1}^{3}a_{i}^{2}    \tag{9}
 $$
 
 $$
-|\mathbf{b}|^{2} = \mathbf{b} \cdot \mathbf{b} = b_1 b_1 + b_2 b_2 + \cdots + b_n b_n = \sum\limits_{i=1}^{n}b_{i}^{2}    \tag{10}
+|\mathbf{b}|^{2} = \mathbf{b} \cdot \mathbf{b} = b_1 b_1 + b_2 b_2 + b_3 b_3 = \sum\limits_{i=1}^{3}b_{i}^{2}    \tag{10}
 $$
 
-将(8)、(9)、(10)式代入(4)式，就得到了(1)式。
+将(8)、(9)、(10)式代入(4)式，可得到
+
+$$
+(\sum\limits_{i=1}^{3}a_{i}b_{i})^{2} \leq (\sum\limits_{i=1}^{3}a_{i}^2) (\sum\limits_{i=1}^{3}b_{i}^2)    \tag{11}
+$$
+
+这就是(1)式中$n=3$的情况。
 
 
 #### 参考资料:
