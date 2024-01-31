@@ -1,0 +1,1 @@
+../../common/python/vector_drawing.py
