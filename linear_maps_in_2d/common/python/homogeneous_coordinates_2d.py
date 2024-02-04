@@ -1,3 +1,5 @@
+from math import sin, cos
+
 
 def point2d_to_homogeneous(point):
     assert len(point) == 2
@@ -20,3 +22,12 @@ def create_translate2d_matrix(translation):
     return ((1, 0, m13),
             (0, 1, m23),
             (0, 0,   1))
+
+def create_rotate2d_matrix(rotate_angle):
+    m11 = cos(rotate_angle)
+    m21 = sin(rotate_angle)
+    m12 = -m21  # -sin(rotate_angle)
+    m22 = m11   # cos(rotate_angle)
+    return ((m11, m12, 0),
+            (m21, m22, 0),
+            (  0,   0, 1))
