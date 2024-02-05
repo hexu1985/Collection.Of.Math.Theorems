@@ -40,3 +40,10 @@ def create_scale2d_matrix(scaling_vector):
             (  0, m22, 0),
             (  0,   0, 1))
 
+def create_shear2d_matrix(shear_vector):
+    assert len(shear_vector) == 2
+    m12 = shear_vector[0]
+    m21 = shear_vector[1]
+    return ((  1, m12, 0),
+            (m21,   1, 0),
+            (  0,   0, 1))
