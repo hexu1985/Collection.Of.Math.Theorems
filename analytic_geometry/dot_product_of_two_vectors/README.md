@@ -28,7 +28,7 @@ $|\mathbf{u}|$和$|\mathbf{v}|$表示向量$\mathbf{u}$和$\mathbf{v}$的大小�
 它们的夹角为$\theta (0 \leq \theta \leq \pi)$，则内积定义为以下实数：
 
 $$
-\mathbf{u} \cdot \mathbf{v} = |\mathbf{u}| |\mathbf{v}| \cos(\theta) 
+\mathbf{u} \cdot \mathbf{v} = |\mathbf{u}| |\mathbf{v}| \cos(\theta)
 $$
 
 该定义只对二维和三维空间有效。
@@ -37,7 +37,7 @@ $$
 
 ![两向量的点积](draw.io/dot_product_of_two_vectors.png)
 
-我们从两个向量$$\mathbf{u}$$和$|\mathbf{v}|$中构建一个三角形。
+我们从两个向量$\mathbf{u}$和$\mathbf{v}$中构建一个三角形。
 
 从三角原理中，我们知道三角形的高h可表示为
 
